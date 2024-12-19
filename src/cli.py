@@ -8,7 +8,10 @@ app = typer.Typer()
 @app.command()
 def minify(url: str):
     typer.echo(f"Minifying url {url} ...")
-    minified_url = URLShortenerService().minify_url(url)
+    minified_url, error_message = URLShortenerService().minify_url(url)
+    if error_message:
+        typer.echo(f"Something went wrong: {error_message}")
+        return
     typer.echo(f"Minified url {minified_url}")
 
 
