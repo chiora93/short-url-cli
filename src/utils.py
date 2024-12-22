@@ -1,3 +1,5 @@
+import random
+import string
 from urllib.parse import urlparse
 
 import settings
@@ -33,6 +35,10 @@ def shorten_url(url: str) -> str:
             short_code = chars[remainder] + short_code
             hash_val //= 62
 
-    # Step 3: Prepend a prefix to form a complete shortened URL
+    # Step 3: Add randomness to shorted URL
+    for i in range(1, 4):
+        short_code = short_code + random.choice(string.ascii_letters)
+
+    # Step 4: Prepend a prefix to form a complete shortened URL
     short_url = settings.SHORTENED_URL_BASE_URL + short_code
     return short_url
