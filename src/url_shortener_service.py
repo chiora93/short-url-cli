@@ -28,5 +28,10 @@ class URLShortenerService:
         self.repository.insert_shortened_url(url, shortened_url, expiration_date)
         return shortened_url, None
 
-    def expand_url(self, shortened_url: str):
-        return self.repository.get_expanded_url_by_shortened_url(shortened_url)
+    def expand_url(self, shortened_url: str) -> [str, ErrorMessage]:
+        shortened_url = self.repository.get_expanded_url_by_shortened_url(shortened_url)
+        if not shortened_url:
+            return None, "Shortened URL doesn't exist"
+        if datetime.now(UTC) > shortened_url.expiration_date:
+            return None, "Expired URL"
+        return shortened_url.expanded_url, None
