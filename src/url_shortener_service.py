@@ -22,14 +22,17 @@ class URLShortenerService:
             return None, "Empty URL input"
         if not is_valid_url(url):
             return None, "Malformed URL input"
+        existing_record = self.repository.get_by_expanded_url(url)
+        if existing_record and existing_record.expiration_date > datetime.now(UTC):
+            return None, "Shortened URL already exists"
 
         shortened_url = shorten_url(url)
         expiration_date = datetime.now(UTC) + timedelta(seconds=settings.SHORTENED_URL_TTL_SECONDS)
-        self.repository.insert_shortened_url(url, shortened_url, expiration_date)
+        self.repository.insert(url, shortened_url, expiration_date)
         return shortened_url, None
 
     def expand_url(self, shortened_url: str) -> [str, ErrorMessage]:
-        shortened_url = self.repository.get_expanded_url_by_shortened_url(shortened_url)
+        shortened_url = self.repository.get_by_shortened_url(shortened_url)
         if not shortened_url:
             return None, "Shortened URL doesn't exist"
         if datetime.now(UTC) > shortened_url.expiration_date:
