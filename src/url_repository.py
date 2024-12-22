@@ -23,5 +23,7 @@ class URLRepository:
         row = {"expanded_url": expanded_url,
                "shortened_url": shortened_url,
                "expiration_date": expiration_date, }
-        self.shortened_urls_collection.insert_one(row)
+        self.shortened_urls_collection.update_one({
+            "expanded_url": expanded_url,
+        }, {"$set": row}, upsert=True)
         return ShortenedURL(**row)
