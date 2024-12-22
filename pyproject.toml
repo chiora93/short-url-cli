@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "short-url-cli"
+version = "0.1.0"
+description = "CLI that allows to expand a shorten URL and to shorten an URL"
+authors = ["KioRocket <chiora93@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+typer = "^0.15.1"
+pymongo = "^4.10.1"
+pydantic = "^2.10.4"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
