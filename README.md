@@ -38,7 +38,7 @@ Example of command and related output:
 ```
 docker compose run --rm cli minify google.com
 
-Minifying url google.com..
+Minifying url https://google.com..
 Minified url https://myurlshortener.com/43AC
 ```
 
@@ -55,5 +55,5 @@ Example of command and related output:
 docker compose run --rm cli expand https://myurlshortener.com/43AC
 
 Expanding url https://myurlshortener.com/43AC ...
-Expanded URL is: google.com
+Expanded URL is: https://google.com
 ```
