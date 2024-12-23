@@ -1,4 +1,4 @@
-FROM python:3.12
+FROM python:3.12 AS cli
 
 # Install poetry
 RUN pip install --no-cache-dir poetry
@@ -20,3 +20,8 @@ ENV PYTHONPATH="${PYTHONPATH}:/app"
 
 # Set the entrypoint
 ENTRYPOINT ["poetry", "run", "python", "short_url_cli/cli.py"]
+
+
+FROM cli AS test
+COPY tests tests
+ENTRYPOINT ["poetry", "run", "pytest", "tests"]

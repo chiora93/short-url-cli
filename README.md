@@ -57,3 +57,9 @@ docker compose run --rm cli expand https://myurlshortener.com/43AC
 Expanding url https://myurlshortener.com/43AC ...
 Expanded URL is: https://google.com
 ```
+
+# Running tests
+
+```bash
+docker compose run --rm tests
+```

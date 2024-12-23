@@ -8,8 +8,17 @@ services:
     volumes:
       - './data:/data/db'
   cli:
-    build: .
+    build:
+      context: .
+      target: cli
     stdin_open: true
     tty: true
     env_file:
       - .env
+
+  tests:
+    build:
+      context: .
+      target: test
+    stdin_open: true
+    tty: true
