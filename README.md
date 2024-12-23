@@ -1,7 +1,9 @@
 # short-url-cli
-CLI that allows to expand a shorten URL and to shorten an URL
+CLI that allows to expand a shorten URL and to shorten a URL
 
 # Set up
+
+The set up will be based on dockerized execution of the CLI.
 
 ## Define env file
 
@@ -62,4 +64,13 @@ Expanded URL is: https://google.com
 
 ```bash
 docker compose run --rm tests
+```
+
+# Local development
+
+This project use `poetry` as dependency manager, ensure to install latest poetry version if you want to develop locally.
+
+Once `poetry` is installed, you can install all dependencies using:
+```bash
+poetry install
 ```
