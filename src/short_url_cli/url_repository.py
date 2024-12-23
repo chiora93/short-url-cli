@@ -8,8 +8,8 @@ from short_url_cli.dtos import ShortenedURL
 
 
 class URLRepository:
-    def __init__(self):
-        self.database = database
+    def __init__(self, database_instance = None):
+        self.database = database_instance or database
         options = CodecOptions(tz_aware=True)
         self.shortened_urls_collection = self.database.get_collection("shortened_urls", options)
 

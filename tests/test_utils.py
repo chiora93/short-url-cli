@@ -36,7 +36,7 @@ def test_shorten_url_structure():
     short = shorten_url(url)
     base_url = "https://myurlshortener.com/"
     assert short.startswith(base_url), "Shortened URL must start with base URL"
-    # Controlla che ci sia un minimo di lunghezza dopo il base_url
+    # Check min lenght
     assert len(short) > len(base_url), "Shortened URL must contain extra characters"
 
 
