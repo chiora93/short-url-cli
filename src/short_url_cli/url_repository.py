@@ -3,8 +3,8 @@ from typing import Optional
 
 from bson.codec_options import CodecOptions
 
-from db import database
-from dtos import ShortenedURL
+from short_url_cli.db import database
+from short_url_cli.dtos import ShortenedURL
 
 
 class URLRepository:

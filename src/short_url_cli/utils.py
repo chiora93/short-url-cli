@@ -2,7 +2,7 @@ import random
 import string
 from urllib.parse import urlparse
 
-import settings
+from short_url_cli import settings
 
 
 def is_valid_url(url: str) -> bool:

@@ -1,6 +1,6 @@
 import typer
 
-from url_shortener_service import URLShortenerService
+from short_url_cli.url_shortener_service import URLShortenerService
 
 app = typer.Typer()
 

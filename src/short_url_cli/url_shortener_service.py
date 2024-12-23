@@ -1,9 +1,9 @@
 from datetime import UTC, datetime, timedelta
 
-import settings
-from custom_types import ErrorMessage
-from url_repository import URLRepository
-from utils import shorten_url, is_valid_url
+from short_url_cli import settings
+from short_url_cli.custom_types import ErrorMessage
+from short_url_cli.url_repository import URLRepository
+from short_url_cli.utils import shorten_url, is_valid_url
 
 
 class URLShortenerService:

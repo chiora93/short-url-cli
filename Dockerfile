@@ -15,5 +15,8 @@ RUN poetry install --no-interaction --no-ansi --no-root
 # Copy the rest of the application
 COPY src .
 
+# Set python path to recognize short_url_cli package correctly
+ENV PYTHONPATH="${PYTHONPATH}:/app"
+
 # Set the entrypoint
-ENTRYPOINT ["poetry", "run", "python", "cli.py"]
+ENTRYPOINT ["poetry", "run", "python", "short_url_cli/cli.py"]
